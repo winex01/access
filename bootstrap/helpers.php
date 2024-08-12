@@ -25,7 +25,7 @@ if (! function_exists('decryptWithCustomKey')) {
     }
 }
 
-if (! function_exists('decryptWithCustomKey')) {
+if (! function_exists('encryptWithCustomKey')) {
     function encryptWithCustomKey($data, $customAppKey = null) {
         if (!$customAppKey || $customAppKey == null) {
             $customAppKey = config('winex01.access.key');
