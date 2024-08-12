@@ -2,7 +2,6 @@
 
 namespace Winex01\Access;
 
-use Illuminate\Routing\Router;
 use Backpack\CRUD\ViewNamespaces;
 use Winex01\Access\Http\Middleware\CheckAccess;
 
@@ -39,11 +38,12 @@ trait AutomaticServiceProvider
      *
      * @return void
      */
-    public function boot(Router $router): void
+    public function boot(): void
     {
-        $router->middlewareGroup('admin', [
-            CheckAccess::class,
-        ]);
+        $this->app->router->middlewareGroup('web', array_merge(
+            $this->app->router->getMiddlewareGroups()['web'],
+            [CheckAccess::class]
+        ));
 
         $this->autoboot();
     }
