@@ -8,6 +8,4 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'something_to_translate'    => 'Something to translate',
-
 ];

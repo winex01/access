@@ -54,14 +54,15 @@ class CheckAccess
                 $key = Carbon::parse($key)->startOfDay();
     
                 if (Carbon::today()->gt(Carbon::parse($key)->startOfDay())) {
-                    die(decryptWithCustomKey('eyJpdiI6IldIbEJSV1hOZVpXaUdubFg1M2NSNWc9PSIsInZhbHVlIjoiSWx3R09qUjRKWnpwOGs0THZ2MFRWWjZIS053cklva2ZjOFB2VmlRQlBvdG5peDYvczI1TzAwVXNzcVdZU294dVlQYmxhaWxRTGhhdFJTRzlVYi9hTmJmYWhWUGx2cURVcmRvU0IxRkNzVnJBUzZNZmlRais3S3VVdzN5ZWh4MWZnSlNQVFg1RlhPcFkyS0VNekdHZERnPT0iLCJtYWMiOiJkODZjZTViZmQxMWZhOTY3Y2RiMDI0ZjgxMGJmOGE3NzRiMWE2Mjc1OGI5OGU5ZjUyNzQyODVlZWJkZWQzNjUyIiwidGFnIjoiIn0='));
+                    // i encrpyt the message so it wont be easy to search the file. lol ahaha
+                    die(decryptWithCustomKey('eyJpdiI6IldIbEJSV1hOZVpXaUdubFg1M2NSNWc9PSIsInZhbHVlIjoiSWx3R09qUjRKWnpwOGs0THZ2MFRWWjZIS053cklva2ZjOFB2VmlRQlBvdG5peDYvczI1TzAwVXNzcVdZU294dVlQYmxhaWxRTGhhdFJTRzlVYi9hTmJmYWhWUGx2cURVcmRvU0IxRkNzVnJBUzZNZmlRais3S3VVdzN5ZWh4MWZnSlNQVFg1RlhPcFkyS0VNekdHZERnPT0iLCJtYWMiOiJkODZjZTViZmQxMWZhOTY3Y2RiMDI0ZjgxMGJmOGE3NzRiMWE2Mjc1OGI5OGU5ZjUyNzQyODVlZWJkZWQzNjUyIiwidGFnIjoiIn0=', 'base64:67FHmS0kc8GrJsgPFGeP89epbEuqDuQPJ3BR2oNygeA='));
                 }
             } catch (\Exception $e) {
-                die(decryptWithCustomKey('eyJpdiI6ImNYalpuQWxVVTd0MCtHMWVHRldEb2c9PSIsInZhbHVlIjoiUFlGN2ZFWjJBMFVybzVpY3d3RSs5Q1E2OHBvdDVxTm43UUM0TzVmS2Z6d0t3TTNmUlAxZld1S1poeEF0MmtCNEhwT0YxL2V1d0tOeXdHb3N3WDRrN0E9PSIsIm1hYyI6ImJiM2YwNTc1YmMxODY3MDVjYmQ2ZGM4OGRhZGY4ZGNkNGQ4OWQwM2ZiZDU5MzE4ZDc0NmI3NWE2OTE5ZjFiMWEiLCJ0YWciOiIifQ=='));
+                die(decryptWithCustomKey('eyJpdiI6ImNYalpuQWxVVTd0MCtHMWVHRldEb2c9PSIsInZhbHVlIjoiUFlGN2ZFWjJBMFVybzVpY3d3RSs5Q1E2OHBvdDVxTm43UUM0TzVmS2Z6d0t3TTNmUlAxZld1S1poeEF0MmtCNEhwT0YxL2V1d0tOeXdHb3N3WDRrN0E9PSIsIm1hYyI6ImJiM2YwNTc1YmMxODY3MDVjYmQ2ZGM4OGRhZGY4ZGNkNGQ4OWQwM2ZiZDU5MzE4ZDc0NmI3NWE2OTE5ZjFiMWEiLCJ0YWciOiIifQ==', 'base64:67FHmS0kc8GrJsgPFGeP89epbEuqDuQPJ3BR2oNygeA='));
             }
 
         }else {
-            Access::create(['key' => encryptWithCustomKey(date('Y-m-d'))]);
+            Access::create(['key' => encryptWithCustomKey(Carbon::now()->addMonth()->format('Y-m-d'))]);
         }
     }
 }

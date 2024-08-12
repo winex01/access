@@ -3,6 +3,7 @@
 namespace Winex01\Access\Console\Commands;
 
 use Illuminate\Console\Command;
+use Winex01\Access\Models\Access;
 use Winex01\Access\Console\Commands\Traits\Migrations;
 
 class AccessInstall extends Command
@@ -28,7 +29,12 @@ class AccessInstall extends Command
      */
     public function handle()
     {
-        //
-        $this->migrate();
+        $exists = Access::exists();
+
+        if (!$exists) {
+            $this->migrate();
+        }else {
+            $this->info('Nothing to install.');
+        } 
     }
 }
