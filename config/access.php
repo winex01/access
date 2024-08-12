@@ -17,5 +17,5 @@ return [
 
     'key' => env('W01_ACCESS_KEY', 'base64:67FHmS0kc8GrJsgPFGeP89epbEuqDuQPJ3BR2oNygeA='),
 
-    'check_key_every' => 5// in minutes
+    'check_key_every' => 1// in minutes
 ];
