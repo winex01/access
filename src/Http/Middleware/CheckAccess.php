@@ -22,9 +22,6 @@ class CheckAccess
         $lastCheck = LastCheck::first(); 
 
         if ($lastCheck) {
-
-            dd(config('winex01.access.check_key_every'));
-
             // run or check every x duration.
             $duration = Carbon::now()->subMinutes(config('winex01.access.check_key_every'));
 
