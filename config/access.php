@@ -5,7 +5,7 @@ return [
         'access' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => env('DB_DATABASE_ACCESS', 'D:\Herd\package\packages\winex01\access\database\access.sqlite'),
+            'database' => env('DB_DATABASE_ACCESS', __DIR__.'/../database/access.sqlite'),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
             'busy_timeout' => null,
