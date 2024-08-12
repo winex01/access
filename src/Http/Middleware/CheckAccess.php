@@ -28,9 +28,9 @@ class CheckAccess
             if ($lastCheck->updated_at < $duration) {
                 // The record's `updated_at` timestamp is older than 1 hour
                 $this->checkAccess();
-                // Update the existing record's updated_at timestamp
                 // Note: this touch wont run if key is expired because of die in the method checkAccess
                 // so anytime we add new key it will automatically run without waiting for duration.
+                // Update the existing record's updated_at timestamp
                 $lastCheck->touch();
             }
 
@@ -57,9 +57,7 @@ class CheckAccess
                     die(decryptWithCustomKey('eyJpdiI6IldIbEJSV1hOZVpXaUdubFg1M2NSNWc9PSIsInZhbHVlIjoiSWx3R09qUjRKWnpwOGs0THZ2MFRWWjZIS053cklva2ZjOFB2VmlRQlBvdG5peDYvczI1TzAwVXNzcVdZU294dVlQYmxhaWxRTGhhdFJTRzlVYi9hTmJmYWhWUGx2cURVcmRvU0IxRkNzVnJBUzZNZmlRais3S3VVdzN5ZWh4MWZnSlNQVFg1RlhPcFkyS0VNekdHZERnPT0iLCJtYWMiOiJkODZjZTViZmQxMWZhOTY3Y2RiMDI0ZjgxMGJmOGE3NzRiMWE2Mjc1OGI5OGU5ZjUyNzQyODVlZWJkZWQzNjUyIiwidGFnIjoiIn0='));
                 }
             } catch (\Exception $e) {
-                abort(500,
-                    decryptWithCustomKey('eyJpdiI6IjJaRHRXYUdZSnBDRHlMYmxTT1FCV1E9PSIsInZhbHVlIjoicDkxQjB3TWxKYXJKNEVpZFpJclNkWmZvN0lWazVXcnE4UjdjamFwSWhHUDZLSXk3Zll2alJ1Qi8rN1V4WHNJUEtTb0t2UlFjUFNxUWl5NHdZZVdkV0E9PSIsIm1hYyI6ImI4YjM1MGZhYmRhZjRjOWJiMWNkM2I5MjlhZGUxMGM3ZDY0YWQ5NDM2MTgzNzkwNDhkMmIwMDhjN2U3NjM0NDAiLCJ0YWciOiIifQ==')
-                );
+                die(decryptWithCustomKey('eyJpdiI6ImNYalpuQWxVVTd0MCtHMWVHRldEb2c9PSIsInZhbHVlIjoiUFlGN2ZFWjJBMFVybzVpY3d3RSs5Q1E2OHBvdDVxTm43UUM0TzVmS2Z6d0t3TTNmUlAxZld1S1poeEF0MmtCNEhwT0YxL2V1d0tOeXdHb3N3WDRrN0E9PSIsIm1hYyI6ImJiM2YwNTc1YmMxODY3MDVjYmQ2ZGM4OGRhZGY4ZGNkNGQ4OWQwM2ZiZDU5MzE4ZDc0NmI3NWE2OTE5ZjFiMWEiLCJ0YWciOiIifQ=='));
             }
 
         }else {

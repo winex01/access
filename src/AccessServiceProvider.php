@@ -3,6 +3,7 @@
 namespace Winex01\Access;
 
 use Illuminate\Support\ServiceProvider;
+use Winex01\Access\Console\Commands\AccessKey;
 use Winex01\Access\Console\Commands\AccessInstall;
 use Winex01\Access\Console\Commands\AccessMigrate;
 use Winex01\Access\Console\Commands\AccessMigrateFresh;
@@ -19,5 +20,6 @@ class AccessServiceProvider extends ServiceProvider
         AccessMigrate::class,
         AccessMigrateFresh::class,
         AccessMigrateRollback::class,
+        AccessKey::class,
     ];
 }
