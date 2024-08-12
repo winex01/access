@@ -4,7 +4,7 @@ namespace Winex01\Access;
 
 use Illuminate\Support\ServiceProvider;
 
-class AddonServiceProvider extends ServiceProvider
+class AccessServiceProvider extends ServiceProvider
 {
     use AutomaticServiceProvider;
 
