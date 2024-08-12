@@ -104,6 +104,13 @@ trait AutomaticServiceProvider
     {
         if ($this->packageDirectoryExistsAndIsNotEmpty('config')) {
             $this->mergeConfigFrom($this->packageConfigFile(), $this->vendorNameDotPackageName());
+
+            // Manually merge the 'connections' part
+            // $packageConnections = config('winex01.access.connections', []);
+            // $existingConnections = config('database.connections', []);
+            
+            // Merge and set the updated connections configuration
+            // config()->set('database.connections', array_merge($existingConnections, $packageConnections));
         }
     }
 
