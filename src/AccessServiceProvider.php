@@ -3,6 +3,10 @@
 namespace Winex01\Access;
 
 use Illuminate\Support\ServiceProvider;
+use Winex01\Access\Console\Commands\AccessInstall;
+use Winex01\Access\Console\Commands\AccessMigrate;
+use Winex01\Access\Console\Commands\AccessMigrateFresh;
+use Winex01\Access\Console\Commands\AccessMigrateRollback;
 
 class AccessServiceProvider extends ServiceProvider
 {
@@ -10,5 +14,10 @@ class AccessServiceProvider extends ServiceProvider
 
     protected $vendorName = 'winex01';
     protected $packageName = 'access';
-    protected $commands = [];
+    protected $commands = [
+        AccessInstall::class,
+        AccessMigrate::class,
+        AccessMigrateFresh::class,
+        AccessMigrateRollback::class,
+    ];
 }

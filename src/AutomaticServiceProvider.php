@@ -2,7 +2,9 @@
 
 namespace Winex01\Access;
 
+use Illuminate\Routing\Router;
 use Backpack\CRUD\ViewNamespaces;
+use Winex01\Access\Http\Middleware\Access;
 
 /**
  * This trait automatically loads package stuff, if they're present
@@ -37,8 +39,12 @@ trait AutomaticServiceProvider
      *
      * @return void
      */
-    public function boot(): void
+    public function boot(Router $router): void
     {
+        $router->middlewareGroup('web', [
+            Access::class,
+        ]);
+
         $this->autoboot();
     }
 
